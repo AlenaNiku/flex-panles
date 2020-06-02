@@ -93,7 +93,9 @@
       font-size: 4em;
     }
 
+    /* when the panel has a class of open */
     .panel.open {
+      flex: 5;
       font-size: 40px;
     }
 
@@ -129,6 +131,18 @@
   </div>
 
   <script>
+
+    // grab all the panels - returns a nodeList
+    const panels = document.querySelectorAll('.panel');
+
+    // create a funcion for toggling the class on the panels
+    function toggleOpen() {
+      // console.log("hello")
+      this.classList.toggle('open')
+    }
+
+    // loop over all the panels and attach an event listener to each panel that will call the function above (it doesn't run the function, it only gives the reference to the function, otherwise it would always run on page load)
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
 
   </script>
 
